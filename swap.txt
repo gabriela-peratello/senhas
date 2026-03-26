@@ -1,21 +1,15 @@
-/* Seleciona os elementos do DOM usando o método querySelector, que retorna o primeiro elemento 
-que corresponde ao seletor CSS especificado */
 
 
-// Elemento do controle deslizante
-// Botão de gerar senha
-//Botão para limpar o histórico de senhas
-// Elemento que mostra o tamanho da senha
-// Elemento que exibe a senha gerada
-// Container da senha gerada
-// Elemento de saudação
-// Elemento de data e hora
 
 
-/* Objeto que contém os conjuntos de caracteres possíveis para a geração de senha
 
 
-/* Variáveis para armazenar a senha atual e o histórico de senhas */
+
+
+
+
+
+
 
 
 /* Função que retorna uma saudação baseada na hora atual do dia

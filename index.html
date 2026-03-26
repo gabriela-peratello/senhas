@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name= "keywords" content="gerador de senhas">
+    <meta name="keywords" content="gerador de senhas">
 
     <link rel="stylesheet" href="./assets/style/app-pwp-styles.css">
 
@@ -12,22 +13,91 @@
 
     <title>Gerador de senhas - SENAI-SP</title>
 </head>
+
 <body>
-    
+
     <!-- Container principal que envolve toda aplicação do APP gerador de senha -->
     <main class="app-pwd">
 
         <!-- Cabeçalho dinâmico que mostra data/hora e mensagem de boas vindas -->
         <header class="app-pwd__header">
 
+            <span class="app-pwd__datetime"></span>
+            <span class="app-pwd__welcome"></span>
+
         </header>
 
         <!-- Seção que contém todos os elementos interativos do APP -->
-        <section class="app-wd__main">
+        <section class="app-pwd__main">
+
+            <!-- Logo do gerador de senhas -->
+            <img class="app-pwd__logo" src="./assets/img/logo-senai-sp.png" alt="Logo SENAI SP">
+
+            <!-- Container de entrada que agrupa o controle deslizante e opções de senha -->
+            <div class="app-pwd__input">
+
+                <!-- Exibição do tamno selcionado da senha -->
+                <span class="app-pwd__text">Gerador de Senhas: <span class="app-pwd__size"></span>caracteres</span>
+
+                <!-- Controle deslizante para selecionar o tamanho da senha -->
+                <input class="app-pwd__slider" type="range" min="8" max="16" value="8" />
+
+
+                <!-- Grupo de opções para personalizar senha -->
+                <div class="app-pwd__options">
+
+                    <!-- Opções para incluir letras maiúsculas -->
+                    <label class="app-pwd__option" name="uppercase-label">
+                        <input type="checkbox" class="app-pwd__checkbox uppercase-check" name="uppercase" checked />
+                        Letras maiúsculas (A-Z)
+                    </label>
+
+                    <!-- Opções para incluir letras minúsculas -->
+                    <label class="app-pwd__option" name="lowercase-label">
+                        <input type="checkbox" class="app-pwd__checkbox lowercase-check" name="lowercase" checked />
+                        Letras minúsculas (A-Z)
+                    </label>
+
+                    <!-- Opções para incluir números -->
+                    <label class="app-pwd__option" name="numbers-label">
+                        <input type="checkbox" class="app-pwd__checkbox numbers-check" name="number" checked />
+                        Números (0-9)
+                    </label>
+
+                    <!-- Opções para incluir caracteres especiais -->
+                    <label class="app-pwd__option" name="special-label">
+                        <input type="checkbox" class="app-pwd__checkbox special-check" name="special" checked />
+                        Caracteres especiais (!@#$%¨&*)
+                    </label>
+
+                </div>
+
+
+
+            </div>
+
+            <!-- Container que exibe a senha gerada e permite cópia -->
+            <div class="app-pwd__result hide">
+
+                <span class="app-pwd__title">Sua nova senha foi gerada!</span>
+                <span class="app-pwd__output"></span>
+                <span class="app-pwd__tooltip">Clique na senha para copiar.👆</span>
+
+            </div>
+
+            <!-- Container que mantém o histórico das últimas senhas gerada -->
+            <div class="app-pwd__history">
+
+                <h2 class="app-pwd__history-title">Últimas senhas geradas:</h2>
+
+                <ul class="app-pwd__history-list"></ul>
+
+            </div>
 
         </section>
 
     </main>
 
 </body>
+
 </html>
