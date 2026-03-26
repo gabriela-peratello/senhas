@@ -1,0 +1,151 @@
+/* Seleciona os elementos do DOM usando o método querySelector, que retorna o primeiro elemento 
+que corresponde ao seletor CSS especificado */
+
+
+// Elemento do controle deslizante
+// Botão de gerar senha
+//Botão para limpar o histórico de senhas
+// Elemento que mostra o tamanho da senha
+// Elemento que exibe a senha gerada
+// Container da senha gerada
+// Elemento de saudação
+// Elemento de data e hora
+
+
+/* Objeto que contém os conjuntos de caracteres possíveis para a geração de senha
+
+
+/* Variáveis para armazenar a senha atual e o histórico de senhas */
+
+
+/* Função que retorna uma saudação baseada na hora atual do dia
+
+
+  /**
+   * Regras da saudação:
+   * 00:00 - 11:59 -> Bom dia
+   * 12:00 - 17:59 -> Boa tarde
+   * 18:00 - 23:59 -> Boa noite
+   */
+
+
+
+/* Função que formata a data e hora atual em um formato legível
+Utiliza vários métodos do objeto Date para obter os componentes da data */
+
+/** Cria um objeto com a data e hora atual */
+
+
+/** Array com os nomes dos dias da semana */
+
+/** Obtém o dia da semana */
+
+
+/** Dados da data */
+
+
+/**
+ * Hora como número (para lógica, se necessário no futuro)
+ * Aqui usamos apenas para formatação
+ */
+
+
+/** Retorna apenas a data e hora (sem saudação) */
+
+
+
+/* Função que atualiza o cabeçalho com a saudação e a data/hora atual */
+
+/* Atualizar header a cada segundo */
+
+
+/* Inicializar header */
+
+
+/* Exibe inicialmente o valor do slider*/
+
+
+/* Atualiza o valor exibido do tamanho da senha conforme o slider é movimentado */
+
+
+/* Função principal para gerar a senha */
+
+// String que armazenará todos os caracteres possíveis para a senha
+
+  /* Obter os checkboxes selecionados */
+
+
+
+
+  /* Construir o charset baseado nas opções selecionadas */
+ 
+
+  /* Se nenhuma opção estiver selecionada, selecionar todas */
+ 
+
+  // Inicializa uma string vazia para armazenar a senha gerada
+ 
+
+
+  /* Loop que itera pelo número de caracteres definido no slider
+ Usa o operador de incremento (++) para aumentar o contador */
+
+  
+    /* Adiciona um caractere aleatório à senha:
+    1. Math.random() gera um número decimal entre 0 e 1
+    2. Multiplicado pelo comprimento do charset para obter um índice válido
+    3. Math.floor() arredonda para baixo para obter um índice inteiro
+    4. charAt() retorna o caractere na posição do índice calculado */
+
+  
+  /* Remove a classe 'hide' para exibir o container da senha */
+  
+
+  /* Insere a senha gerada no elemento HTML */
+
+ 
+  /*  Armazena a senha atual na variável global para uso posterior (ex: copiar) */
+  
+  /* Gerenciamento do histórico de senhas:
+  unshift() adiciona a nova senha no início do array */
+ 
+
+  /*  Limita o histórico a 3 senhas:
+  Se o array tiver mais de 3 itens, pop() remove o último */
+ 
+  /* Atualizar a lista de histórico na interface: */
+ 
+    /* Remover a classe 'hide' para exibir o histórico */
+    
+
+    /* Cria elementos <li> para cada senha no histórico:
+    1. map() transforma cada senha em um elemento HTML
+    2. join('') concatena todos os elementos em uma única string */
+
+  
+
+/* Função para copiar a senha gerada para a área de transferência */
+
+  // Exibe um alerta de sucesso
+ // Copia a senha usando a API Clipboard
+
+
+/* Adicionar os event listeners para os eventos de clique */
+ // Gera nova senha
+  // Copia a senha
+
+/* Função para limpar os dados e esconder os containers */
+
+  // Limpa o histórico de senhas
+ 
+
+  /* Esconder os containers */
+ 
+
+  /* Reseta os checkboxes para o estado inicial (marcados) */
+
+
+  /* Reseta o slider para o valor inicial */
+  
+
+/* Adiciona o event listener para o botão de limpar */
