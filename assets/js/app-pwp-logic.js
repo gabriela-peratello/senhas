@@ -29,9 +29,9 @@ const getSaudacao = () => {
 
     const hora = new Date().getHours();
 
-    if (hora < 12) return 'Bom Dia.'
-    if (hora < 18) return 'Bom tarde.'
-    return 'Boa noite.';
+    if (hora < 12) return '- Bom Dia'
+    if (hora < 18) return '- Bom tarde'
+    return '- Boa noite';
 };
 
 // Função que formata data e hora atual em um formato legível, usa de vários métodos do obj Date para obter os componentes da data
@@ -61,12 +61,71 @@ const formatarDataHora = () =>{
 
     // Hora como número
     const hora = agra.getHours().toString().padStart(2, '0');
-    const minuto = agra.getMinutes().toString().padStart(2, '0')
-    const segundo =  agra.getUTCSeconds().toString().padStart(2, '0')
+    const minuto = agra.getMinutes().toString().padStart(2, '0');
+    const segundo =  agra.getUTCSeconds().toString().padStart(2, '0');
     
     // Return
     return `${diaSemana}, ${dia}/${mes}/${ano} ${hora}:${minuto}:${segundo}`;
 };
 
- 
+// Função que atualiza o cabeçalho com  a saudação e a data/hora - cada uma responsável por um pedaço do header
+const atualizarHeader = () => {
+    welcomeElement.textContent = `${getSaudacao()}!`;
+    datetimeElement.textContent = formatarDataHora();
+};
+
+// Atualizar o header a cada segundo
+setInterval(atualizarHeader, 1000)
+
+// Iniciar o header
+atualizarHeader();
+
+
+// Exibe inicialmente o valor do slider
+sizePassword.textContent = sliderElement.value;
+
+// Atualiza o valor exibido do tamanho da senha conforme o slider é movimentado
+sliderElement.addEventListener('input', (e) => {
+    sizePassword.textContent = e.target.value;
+});
+
+// Função principal para gerar a senha
+const generatePassword = () => {
+
+};
+
+
+// Função para copiar a  senha gerada para área de trabalho
+const copyPassword = () => {
+    alert('Senha copiada com sucesso!'); //Exibir um alerta de sucesso
+    navigator.clipboard.writeText(novaSenha); //Copia a senha usando API Clipboard
+};
+
+// Adicionar os event listeners para os eventos de clique
+buttonElement.addEventListener('click', generatePassword); //Gera nova senha
+containerPassword.addEventListener('click', copyPassword); //Copia a senha
+
+// Função para limpar os dados para os eventos de clique
+const clearData = () => {
+    // Limpa o histórico de senhas
+    historicoSenha = [];
+    novaSenha = '';
+
+    // Esconder os containers
+    containerPassword.classList.add('hide');
+    const historico = document.querySelector('.app-pwd__history');
+    if (historico) {
+        historico.computedStyleMap.display = 'none'
+    }
+
+    // Reseta as checkbox para o estado inicial (marcado)
+    document,querySelector('.uppercase-check').checked = true;
+    document,querySelector('.lowercase-check').checked = true;
+    document,querySelector('.numbers-check').checked = true;
+    document,querySelector('.special-check').checked = true;
+
+};
+
+// Adiciona o event listener para o botão de limpar
+clearButton.addEventListener('click', clearData);
 

@@ -1,5 +1,3 @@
-
-
 body{
     display: flex;
     justify-content: center;
@@ -10,5 +8,26 @@ body{
     overflow: hidden;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f1f1f1;
+    padding: 50px;
 
+}
+
+.app-pwd{
+    background-color: aquamarine;
+}
+
+.app-pwd__header{
+    background-color: blue;
+}
+
+.app-pwd__welcome{
+    background-color: blueviolet;
+}
+
+.app-pwd__datetime{
+    background-color: chocolate;
+}
+
+.app-pwd__main{
+    background-color: rgb(185, 182, 182);
 }
