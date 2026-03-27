@@ -31,3 +31,11 @@ body{
 .app-pwd__main{
     background-color: rgb(185, 182, 182);
 }
+
+.app-pwd__logo{
+    background-color: burlywood;
+}
+
+.app-pwd___options{
+    background-color: chartreuse;
+}

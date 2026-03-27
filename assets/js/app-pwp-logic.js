@@ -92,6 +92,64 @@ sliderElement.addEventListener('input', (e) => {
 // Função principal para gerar a senha
 const generatePassword = () => {
 
+    let selectCharset = ''; //String que armazena todos os caracteres possiveis para a senha
+
+    // Obter os checkbox selecionados
+    const uppercaseCheked = document.querySelector('.uppercase-check').checked;
+    const lowercaseCheked = document.querySelector('.lowercase-check').checked;
+    const cnumbersCheked = document.querySelector('.numbers-check').checked;
+    const specialCheked = document.querySelector('.special-check').checked;
+
+    // Construir charset basedo nas opções selecionadas
+    if (uppercaseCheked) selectCharset += charsets.uppercase
+    if (lowercaseCheked) selectCharset += charsets.lowercasw
+    if (cnumbersCheked) selectCharset += charsets.numbers
+    if (specialCheked) selectCharset += charsets.special
+
+    // Se nenhuma opção estiver selecionada, seleciona todas
+    if (!selectCharset) {
+        selectCharset = Object.values(charsets).join('');
+        console.log(selectCharset)
+
+        document.querySelector('.uppercase-check').checked = true;
+        document.querySelector('.lowercase-check').checked = true;
+        document.querySelector('.numbers-check').checked = true;
+        document.querySelector('.special-check').checked = true; 
+    }
+
+    let pass = '';
+
+    // Looop que itera pelo número de caracteres definido nos slider. Usa o operador de incremento (++) para aumentar o contador
+    for (let i = 0; i < sliderElement.value; ++i) {
+        pass += selectCharset.charAt(Math.floor(Math.random() * selectCharset.length ));
+    }
+
+    //  Remove a classe 'hide' para exibir o container senha
+    containerPassword.classList.remove('hide');
+
+    // Insere a senha gerada no elemento html
+    passaword.textContent = pass
+
+    // Armazena a senha atual na variável global para uso posterior (ex: copiar)
+    novaSenha = pass;
+
+    // Gerenciamento do histórico de senhas: unshift adiciona a nova senha no inicio do array
+    if (historicoSenha.length > 3){
+        historicoSenha.pop();
+    }
+
+    // Atualizar a lista de historico na interface
+    const historico = document.querySelector('.app=pwd__history');
+    if (historico){
+        historico.computedStyleMap.display = 'block';
+
+
+        historico.querySelector('.app-pwd__history-list').innerHTML = historicoSenha
+        .map(senha => ` <li class="app-pwd__history-item"> ${senha}</li>`)
+        .join('')
+    }
+
+
 };
 
 
